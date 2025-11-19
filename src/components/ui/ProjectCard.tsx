@@ -43,13 +43,13 @@ export default function ProjectCard({
         )}
       >
         {/* Header - Fixed height */}
-        <div className="flex items-start justify-between mb-4 min-h-[80px]">
-          <div className="flex-1">
-            <h3 className="text-xl md:text-2xl font-semibold mb-1 group-hover:text-primary transition-colors line-clamp-2">
+        <div className="flex items-start justify-between mb-4 h-[72px]">
+          <div className="flex-1 min-w-0">
+            <h3 className="text-xl md:text-2xl font-semibold mb-2 group-hover:text-primary transition-colors truncate" title={title}>
               {title}
             </h3>
             <div className="flex items-center gap-2">
-              <p className="text-sm text-foreground-muted font-mono">
+              <p className="text-sm text-foreground-muted font-mono truncate">
                 {company}
                 {industry && <span className="text-primary/60"> · {industry}</span>}
               </p>
@@ -59,7 +59,7 @@ export default function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center text-primary/60 hover:text-primary transition-colors"
+                  className="inline-flex items-center text-primary/60 hover:text-primary transition-colors flex-shrink-0"
                   title="View live project"
                 >
                   <ExternalLink size={14} />
@@ -68,7 +68,7 @@ export default function ProjectCard({
             </div>
           </div>
           <motion.div
-            className="text-primary transition-transform flex-shrink-0"
+            className="text-primary transition-transform flex-shrink-0 ml-2"
             animate={{ x: 0, rotate: 0 }}
             whileHover={{ x: 4, rotate: 45 }}
             transition={{ duration: 0.15 }}
