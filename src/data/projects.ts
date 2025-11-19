@@ -232,7 +232,8 @@ export const projects: Project[] = [
       "CMS-driven dynamic content publishing and product personalization"
     ],
     featured: true,
-    category: "ecommerce"
+    category: "ecommerce",
+    link: "https://touchnote.com/us/"
   },
   {
     id: "card-creator",
@@ -611,7 +612,8 @@ export const projects: Project[] = [
       "Premium animations GSAP & scroll-based transitions"
     ],
     featured: false,
-    category: "side-project"
+    category: "side-project",
+    link: "https://www.kingcaller.ai/"
   },
   {
     id: "expedia-console",
@@ -644,6 +646,74 @@ export const projects: Project[] = [
     ],
     featured: false,
     category: "dashboard"
+  },
+  {
+    id: "microcollab",
+    slug: "microcollab-realtime-collaboration",
+    title: "MicroCollab – Real-Time Collaboration Platform",
+    company: "Personal Project",
+    industry: "Developer Tools",
+    timeline: "2024",
+    primaryTag: "side-project",
+    secondaryTag: "Real-time",
+    oneLineSummary: "A real-time collaborative workspace enabling teams to brainstorm, plan, and ideate together with live cursors and updates.",
+    description: "Built a real-time collaboration platform featuring live cursors, shared whiteboards, sticky notes, and synchronized editing powered by WebSockets.",
+    longDescription: `Built a real-time collaboration platform featuring live cursors, shared whiteboards, sticky notes, and synchronized editing powered by WebSockets. MicroCollab enables distributed teams to collaborate visually in real time, similar to tools like Miro or FigJam. Users can create boards, add elements, move objects, and see teammates' activity instantly. The project demonstrates expertise in real-time state synchronization, conflict resolution, and building smooth collaborative experiences.`,
+    role: "Full-Stack Developer",
+    roleDescription: `Designed and implemented the entire platform, including the React-based canvas UI, WebSocket server for real-time sync, state management with Redux, and database persistence. Built features like live cursor tracking, drag-and-drop interactions, collaborative sticky notes, and user presence indicators. Focused on low-latency synchronization and responsive UX across devices.`,
+    techStack: [
+      "React",
+      "TypeScript",
+      "WebSockets",
+      "Node.js",
+      "Redux Toolkit",
+      "Canvas API",
+      "PostgreSQL",
+      "Tailwind CSS"
+    ],
+    metrics: [
+      "Real-time cursor tracking with <50ms latency",
+      "Multi-user board collaboration",
+      "100% responsive canvas interactions",
+      "Deployed live demo on Netlify"
+    ],
+    featured: false,
+    category: "side-project",
+    link: "https://microcollax.netlify.app/"
+  },
+  {
+    id: "codepulse",
+    slug: "codepulse-developer-dashboard",
+    title: "CodePulse – Developer Activity Dashboard",
+    company: "Personal Project",
+    industry: "Developer Tools",
+    timeline: "2024",
+    primaryTag: "side-project",
+    secondaryTag: "Analytics",
+    oneLineSummary: "A developer productivity dashboard that tracks coding activity, commit patterns, and project metrics with visual insights.",
+    description: "Created a personal developer dashboard that aggregates Git activity, coding patterns, and productivity metrics with data visualization.",
+    longDescription: `Created a personal developer dashboard that aggregates Git activity, coding patterns, and productivity metrics with data visualization. CodePulse connects to GitHub APIs to fetch commit history, analyze coding frequency, track active projects, and display insights through interactive charts and graphs. The project helps developers understand their work patterns, productivity trends, and project contributions over time. Built with modern frontend tooling and designed for speed and clarity.`,
+    role: "Full-Stack Developer",
+    roleDescription: `Built the entire application including GitHub API integration, data parsing and aggregation logic, D3.js/Recharts visualizations, and responsive UI design. Implemented authentication, data caching for performance, and interactive filtering options. Focused on delivering actionable insights through clean, minimal design and smooth animations.`,
+    techStack: [
+      "React",
+      "TypeScript",
+      "D3.js",
+      "Recharts",
+      "GitHub API",
+      "Node.js",
+      "Tailwind CSS",
+      "Vercel"
+    ],
+    metrics: [
+      "GitHub API integration with OAuth",
+      "Interactive data visualizations with D3.js",
+      "95+ Lighthouse performance score",
+      "Deployed live demo on Netlify"
+    ],
+    featured: false,
+    category: "side-project",
+    link: "https://codepulse2212.netlify.app/"
   }
 ];
 
