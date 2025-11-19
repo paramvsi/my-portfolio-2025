@@ -33,6 +33,7 @@ export default function FeaturedWork() {
               metrics={project.metrics.slice(0, 2)}
               href={`/work/${project.slug}`}
               featured={project.featured}
+              link={project.link}
             />
           ))}
         </Grid>

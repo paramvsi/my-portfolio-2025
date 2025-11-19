@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import TechPill from "./TechPill";
 import GlassCard from "./GlassCard";
@@ -17,6 +17,7 @@ interface ProjectCardProps {
   href: string;
   featured?: boolean;
   className?: string;
+  link?: string;
 }
 
 export default function ProjectCard({
@@ -29,6 +30,7 @@ export default function ProjectCard({
   href,
   featured = false,
   className,
+  link,
 }: ProjectCardProps) {
   return (
     <Link href={href} className="block group">
@@ -46,10 +48,24 @@ export default function ProjectCard({
             <h3 className="text-xl md:text-2xl font-semibold mb-1 group-hover:text-primary transition-colors">
               {title}
             </h3>
-            <p className="text-sm text-foreground-muted font-mono">
-              {company}
-              {industry && <span className="text-primary/60"> · {industry}</span>}
-            </p>
+            <div className="flex items-center gap-2">
+              <p className="text-sm text-foreground-muted font-mono">
+                {company}
+                {industry && <span className="text-primary/60"> · {industry}</span>}
+              </p>
+              {link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center text-primary/60 hover:text-primary transition-colors"
+                  title="View live project"
+                >
+                  <ExternalLink size={14} />
+                </a>
+              )}
+            </div>
           </div>
           <motion.div
             className="text-primary transition-transform"
@@ -61,25 +77,31 @@ export default function ProjectCard({
           </motion.div>
         </div>
 
-        {/* Description */}
-        <p className="text-foreground-muted mb-6 flex-1">{description}</p>
+        {/* Description - Fixed height area */}
+        <div className="flex-1 mb-6">
+          <p className="text-foreground-muted line-clamp-3">{description}</p>
+        </div>
 
-        {/* Metrics */}
-        {metrics.length > 0 && (
-          <div className="mb-6 grid grid-cols-2 gap-3">
-            {metrics.map((metric, index) => (
-              <div
-                key={index}
-                className="bg-primary/5 border border-primary/20 rounded-lg px-3 py-2"
-              >
-                <p className="text-primary text-sm font-medium">{metric}</p>
-              </div>
-            ))}
-          </div>
-        )}
+        {/* Metrics - Fixed height */}
+        <div className="mb-6 min-h-[88px]">
+          {metrics.length > 0 ? (
+            <div className="grid grid-cols-2 gap-3">
+              {metrics.slice(0, 2).map((metric, index) => (
+                <div
+                  key={index}
+                  className="bg-primary/5 border border-primary/20 rounded-lg px-3 py-2"
+                >
+                  <p className="text-primary text-sm font-medium line-clamp-2">{metric}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="h-full" />
+          )}
+        </div>
 
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+        {/* Tech Stack - Fixed at bottom */}
+        <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 mt-auto">
           {techStack.map((tech) => (
             <TechPill key={tech} variant="default" size="sm">
               {tech}

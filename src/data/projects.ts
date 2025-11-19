@@ -556,7 +556,8 @@ export const projects: Project[] = [
       "User-friendly onboarding and profile flows"
     ],
     featured: false,
-    category: "side-project"
+    category: "side-project",
+    link: "https://microcollax.netlify.app/"
   },
   {
     id: "operator-marketplace",
