@@ -42,10 +42,10 @@ export default function ProjectCard({
           className
         )}
       >
-        {/* Header */}
-        <div className="flex items-start justify-between mb-4">
+        {/* Header - Fixed height */}
+        <div className="flex items-start justify-between mb-4 min-h-[80px]">
           <div className="flex-1">
-            <h3 className="text-xl md:text-2xl font-semibold mb-1 group-hover:text-primary transition-colors">
+            <h3 className="text-xl md:text-2xl font-semibold mb-1 group-hover:text-primary transition-colors line-clamp-2">
               {title}
             </h3>
             <div className="flex items-center gap-2">
@@ -68,7 +68,7 @@ export default function ProjectCard({
             </div>
           </div>
           <motion.div
-            className="text-primary transition-transform"
+            className="text-primary transition-transform flex-shrink-0"
             animate={{ x: 0, rotate: 0 }}
             whileHover={{ x: 4, rotate: 45 }}
             transition={{ duration: 0.15 }}
@@ -78,26 +78,24 @@ export default function ProjectCard({
         </div>
 
         {/* Description - Fixed height area */}
-        <div className="flex-1 mb-6">
+        <div className="mb-6 h-[72px]">
           <p className="text-foreground-muted line-clamp-3">{description}</p>
         </div>
 
         {/* Metrics - Fixed height */}
-        <div className="mb-6 min-h-[88px]">
+        <div className="mb-6 h-[88px]">
           {metrics.length > 0 ? (
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-3 h-full">
               {metrics.slice(0, 2).map((metric, index) => (
                 <div
                   key={index}
-                  className="bg-primary/5 border border-primary/20 rounded-lg px-3 py-2"
+                  className="bg-primary/5 border border-primary/20 rounded-lg px-3 py-2 flex items-center"
                 >
                   <p className="text-primary text-sm font-medium line-clamp-2">{metric}</p>
                 </div>
               ))}
             </div>
-          ) : (
-            <div className="h-full" />
-          )}
+          ) : null}
         </div>
 
         {/* Tech Stack - Fixed at bottom */}
