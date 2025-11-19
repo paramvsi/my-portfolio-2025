@@ -5,7 +5,19 @@ import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import TechPill from "@/components/ui/TechPill";
 
-const techStack = ["Next.js 15", "React", "TypeScript", "Kafka", "Real-time Data"];
+const techStack = [
+  "Next.js",
+  "React",
+  "Angular",
+  "Java/Spring",
+  "Node.js",
+  "Kafka",
+  "Postgres",
+  "E-commerce",
+  "Banking",
+  "Insurance",
+  "Real-Time Systems"
+];
 
 export default function HeroSection() {
   return (
@@ -13,7 +25,7 @@ export default function HeroSection() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-hero-gradient opacity-30" />
 
-      <div className="relative max-w-6xl mx-auto px-6 py-20">
+      <div className="relative max-w-[1500px] mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text content */}
           <motion.div
@@ -27,7 +39,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-primary text-sm font-mono mb-4"
             >
-              Senior Full-Stack Engineer · Real-time Data & Dashboards
+              Senior Full-Stack Engineer · Web Platforms · Enterprise Apps · Real-Time Systems
             </motion.p>
 
             <motion.h1
@@ -36,7 +48,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
             >
-              I build <span className="text-gradient">real-time data products</span> and dashboards that make telecom-scale data usable.
+              I build modern, <span className="text-gradient">scalable applications</span>—from web platforms to enterprise systems and real-time solutions.
             </motion.h1>
 
             <motion.p
@@ -45,8 +57,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-foreground-muted text-lg mb-8"
             >
-              Specializing in Next.js applications, streaming pipelines, and enterprise data platforms.
-              Currently building data monetization tools at Etisalat by e& (Daitics).
+              With 9+ years of experience, I&apos;ve delivered full-stack products across e-commerce, banking, insurance, and telecom. I combine modern frontend engineering, solid backend architecture, and clean UI/UX to ship reliable, production-ready applications end-to-end.
             </motion.p>
 
             {/* CTAs */}
@@ -64,12 +75,12 @@ export default function HeroSection() {
                 <ArrowRight size={16} />
               </Link>
               <Link
-                href="/resume.pdf"
+                href="/paramveer_resume.pdf"
                 target="_blank"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-primary/30 hover:bg-primary/10 font-medium rounded-full transition-colors"
               >
                 <Download size={16} />
-                Download resume
+                Download résumé
               </Link>
             </motion.div>
 

@@ -10,6 +10,7 @@ import GlassCard from "./GlassCard";
 interface ProjectCardProps {
   title: string;
   company: string;
+  industry?: string;
   description: string;
   techStack: string[];
   metrics?: string[];
@@ -21,6 +22,7 @@ interface ProjectCardProps {
 export default function ProjectCard({
   title,
   company,
+  industry,
   description,
   techStack,
   metrics = [],
@@ -44,12 +46,16 @@ export default function ProjectCard({
             <h3 className="text-xl md:text-2xl font-semibold mb-1 group-hover:text-primary transition-colors">
               {title}
             </h3>
-            <p className="text-sm text-foreground-muted font-mono">{company}</p>
+            <p className="text-sm text-foreground-muted font-mono">
+              {company}
+              {industry && <span className="text-primary/60"> · {industry}</span>}
+            </p>
           </div>
           <motion.div
-            className="text-primary"
-            whileHover={{ x: 4 }}
-            transition={{ duration: 0.2 }}
+            className="text-primary transition-transform"
+            animate={{ x: 0, rotate: 0 }}
+            whileHover={{ x: 4, rotate: 45 }}
+            transition={{ duration: 0.15 }}
           >
             <ArrowRight size={20} />
           </motion.div>

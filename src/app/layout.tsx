@@ -15,14 +15,60 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Paramveer Singh - Senior Frontend Engineer",
-  description: "Building real-time data products and dashboards that make telecom-scale data usable.",
-  keywords: ["Frontend Developer", "Real-time Data", "Dashboard Development", "React", "Next.js", "TypeScript"],
-  authors: [{ name: "Paramveer Singh" }],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3005'),
+  title: {
+    default: "Paramveer Singh - Senior Frontend Engineer",
+    template: "%s | Paramveer Singh",
+  },
+  description: "Senior Frontend Engineer specializing in real-time data systems, enterprise dashboards, and scalable web applications. Building data products at Etisalat.",
+  keywords: [
+    "Frontend Developer",
+    "Senior Frontend Engineer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript",
+    "Real-time Data",
+    "Dashboard Development",
+    "Data Visualization",
+    "Kafka",
+    "Apache Flink",
+    "Web Performance",
+    "Dubai Developer",
+  ],
+  authors: [{ name: "Paramveer Singh", url: "https://github.com/paramvsi" }],
+  creator: "Paramveer Singh",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml", sizes: "any" },
+    ],
+    apple: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+  },
   openGraph: {
-    title: "Paramveer Singh - Senior Frontend Engineer",
-    description: "Building real-time data products and dashboards",
     type: "website",
+    locale: "en_US",
+    url: "/",
+    title: "Paramveer Singh - Senior Frontend Engineer",
+    description: "Building real-time data products and enterprise dashboards that make telecom-scale data usable.",
+    siteName: "Paramveer Singh Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paramveer Singh - Senior Frontend Engineer",
+    description: "Building real-time data products and enterprise dashboards",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

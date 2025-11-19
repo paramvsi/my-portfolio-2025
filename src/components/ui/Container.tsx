@@ -20,7 +20,7 @@ export default function Container({
           sm: "max-w-2xl",
           md: "max-w-3xl",
           lg: "max-w-5xl",
-          xl: "max-w-6xl",
+          xl: "max-w-[1500px]",
           "2xl": "max-w-7xl",
         }[size],
         className

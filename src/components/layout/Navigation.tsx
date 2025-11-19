@@ -37,7 +37,7 @@ export default function Navigation() {
           isScrolled ? "glass border-b border-white/10" : ""
         )}
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[1500px] mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="relative">
@@ -66,7 +66,7 @@ export default function Navigation() {
                 </Link>
               ))}
               <Link
-                href="/resume.pdf"
+                href="/paramveer_resume.pdf"
                 target="_blank"
                 className="px-4 py-2 text-sm font-medium border border-primary/30 rounded-full hover:bg-primary/10 transition-colors"
               >
@@ -110,7 +110,7 @@ export default function Navigation() {
                 </Link>
               ))}
               <Link
-                href="/resume.pdf"
+                href="/paramveer_resume.pdf"
                 target="_blank"
                 className="px-6 py-3 text-lg font-medium border border-primary/30 rounded-full hover:bg-primary/10 transition-colors"
               >

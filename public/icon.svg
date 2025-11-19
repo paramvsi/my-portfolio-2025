@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background with rounded corners -->
+  <rect width="512" height="512" rx="96" fill="#020617"/>
+
+  <!-- Neon glow effect -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- PS text with gradient and glow -->
+  <text
+    x="256"
+    y="340"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="220"
+    font-weight="700"
+    fill="url(#gradient)"
+    text-anchor="middle"
+    filter="url(#glow)"
+  >PS</text>
+</svg>
