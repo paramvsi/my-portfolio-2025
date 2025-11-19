@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Download } from "lucide-react";
 import TechPill from "@/components/ui/TechPill";
 
@@ -104,30 +105,61 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Visual element */}
+          {/* Professional Photo */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative"
+            className="relative hidden md:flex justify-center items-center"
           >
-            <div className="aspect-square rounded-2xl glass p-8 glow-primary">
-              {/* Simple data flow visualization */}
-              <div className="w-full h-full flex items-center justify-center text-primary/20">
-                <svg viewBox="0 0 200 200" className="w-full h-full">
-                  <circle cx="50" cy="50" r="4" fill="currentColor" className="animate-pulse" />
-                  <circle cx="150" cy="50" r="4" fill="currentColor" className="animate-pulse delay-100" />
-                  <circle cx="100" cy="100" r="6" fill="currentColor" className="animate-pulse delay-200" />
-                  <circle cx="50" cy="150" r="4" fill="currentColor" className="animate-pulse delay-300" />
-                  <circle cx="150" cy="150" r="4" fill="currentColor" className="animate-pulse delay-400" />
+            {/* Gradient background blur */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-full blur-3xl opacity-50" />
 
-                  <path d="M50,50 L100,100 M150,50 L100,100 M50,150 L100,100 M150,150 L100,100"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                        fill="none"
-                        opacity="0.5" />
-                </svg>
-              </div>
+            {/* Photo container */}
+            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+              <motion.div
+                className="relative w-full h-full rounded-3xl overflow-hidden ring-2 ring-primary/30 ring-offset-4 ring-offset-background shadow-2xl"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Image
+                  src="/images/Paramveer-Singh.jpeg"
+                  alt="Paramveer Singh - Senior Full-Stack Engineer"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 0px, (max-width: 1024px) 320px, 384px"
+                />
+                {/* Subtle overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+              </motion.div>
+
+              {/* Decorative elements */}
+              <motion.div
+                className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-primary/10 blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              <motion.div
+                className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-purple-500/10 blur-2xl"
+                animate={{
+                  scale: [1, 1.3, 1],
+                  opacity: [0.2, 0.4, 0.2]
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+              />
             </div>
           </motion.div>
         </div>
