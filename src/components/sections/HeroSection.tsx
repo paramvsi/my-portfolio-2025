@@ -123,15 +123,17 @@ export default function HeroSection() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/images/Paramveer-Singh.jpeg"
+                  src="/images/paramveer-hero.png"
                   alt="Paramveer Singh - Senior Full-Stack Engineer"
                   fill
-                  className="object-cover"
+                  className="object-cover brightness-90 contrast-105 saturate-90"
                   priority
                   sizes="(max-width: 768px) 0px, (max-width: 1024px) 320px, 384px"
                 />
+                {/* Color overlay to blend with theme */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background/30 mix-blend-overlay" />
                 {/* Subtle overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
               </motion.div>
 
               {/* Decorative elements */}
