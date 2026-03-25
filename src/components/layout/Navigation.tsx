@@ -33,55 +33,56 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled ? "glass border-b border-white/10" : ""
+          "fixed top-0 w-full z-50 transition-all duration-300",
+          isScrolled
+            ? "bg-surface/80 backdrop-blur-xl shadow-2xl shadow-primary/5"
+            : "bg-transparent"
         )}
       >
-        <div className="max-w-[1500px] mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link href="/" className="relative">
-              <span className="text-lg font-semibold">Paramveer Singh</span>
-              <span className="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-primary to-transparent" />
-            </Link>
+        <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="text-xl font-black tracking-tighter text-white hover:scale-105 transition-transform"
+          >
+            Paramveer Singh
+          </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={cn(
-                    "relative py-2 text-sm font-medium transition-colors hover:text-primary",
-                    pathname === item.href ? "text-primary" : "text-foreground-muted"
-                  )}
-                >
-                  {item.name}
-                  {pathname === item.href && (
-                    <motion.span
-                      layoutId="navbar-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-px bg-primary"
-                    />
-                  )}
-                </Link>
-              ))}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight text-sm uppercase">
+            {navItems.map((item) => (
               <Link
-                href="/paramveer_resume.pdf"
-                target="_blank"
-                className="px-4 py-2 text-sm font-medium border border-primary/30 rounded-full hover:bg-primary/10 transition-colors"
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "transition-colors active:scale-95 duration-200",
+                  pathname === item.href
+                    ? "text-primary border-b-2 border-primary pb-1"
+                    : "text-on-surface-variant/60 hover:text-on-surface"
+                )}
               >
-                Resume
+                {item.name}
               </Link>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2"
-            >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+            ))}
           </div>
+
+          {/* Resume Button */}
+          <Link
+            href="/paramveer_resume.pdf"
+            target="_blank"
+            className="hidden md:block bg-primary text-on-primary px-6 py-2 rounded-lg font-bold font-headline text-sm hover:brightness-110 active:scale-95 transition-all duration-300 shadow-lg shadow-primary/20"
+          >
+            Resume
+          </Link>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </motion.nav>
 
@@ -102,8 +103,8 @@ export default function Navigation() {
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
-                    "text-2xl font-medium transition-colors hover:text-primary",
-                    pathname === item.href ? "text-primary" : "text-foreground"
+                    "text-2xl font-bold font-headline uppercase tracking-tight transition-colors hover:text-primary",
+                    pathname === item.href ? "text-primary" : "text-on-surface"
                   )}
                 >
                   {item.name}
@@ -112,7 +113,8 @@ export default function Navigation() {
               <Link
                 href="/paramveer_resume.pdf"
                 target="_blank"
-                className="px-6 py-3 text-lg font-medium border border-primary/30 rounded-full hover:bg-primary/10 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold font-headline text-lg hover:brightness-110 transition-all shadow-lg shadow-primary/20"
               >
                 Resume
               </Link>

@@ -1,42 +1,63 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
-  --color-background: #020617;
-  --color-background-elevated: rgba(2, 6, 23, 0.8);
+  /* Surface Hierarchy (DESIGN.md) */
+  --color-background: #0e1322;
+  --color-background-elevated: rgba(14, 19, 34, 0.8);
   --color-foreground: #e5e7eb;
   --color-foreground-muted: #9ca3af;
 
-  --color-primary: #22d3ee;
-  --color-primary-dark: #0e7490;
-  --color-primary-foreground: #020617;
+  --color-surface: #0e1322;
+  --color-surface-low: #161b2b;
+  --color-surface-high: #25293a;
+  --color-surface-highest: rgba(37, 41, 58, 0.6);
+  --color-surface-lowest: #090e1d;
+  --color-surface-variant: #2f3445;
+  --color-surface-container: #1a1f2f;
+  --color-surface-bright: #343949;
+
+  /* On-surface colors */
+  --color-on-surface: #dee1f7;
+  --color-on-surface-variant: #bccac0;
+  --color-on-background: #dee1f7;
+  --color-on-primary: #003826;
+  --color-on-secondary: #3f008d;
+
+  /* Accent Colors */
+  --color-primary: #78fbc5;
+  --color-primary-dark: #59deaa;
+  --color-primary-foreground: #0e1322;
 
   --color-secondary: #6366f1;
   --color-secondary-foreground: #e5e7eb;
 
-  --color-destructive: #ef4444;
+  --color-tertiary: #a5efff;
+
+  --color-destructive: #ffb4ab;
   --color-destructive-foreground: #e5e7eb;
 
   --color-success: #22c55e;
-  --color-success-foreground: #020617;
+  --color-success-foreground: #0e1322;
 
-  --color-accent: #f97316;
-  --color-accent-foreground: #020617;
+  --color-accent: #a5efff;
+  --color-accent-foreground: #0e1322;
 
-  --color-muted: #1f2937;
+  --color-muted: #161b2b;
   --color-muted-foreground: #9ca3af;
 
-  --color-border: #1f2937;
-  --color-border-subtle: #1f2937;
-  --color-border-strong: #38bdf8;
+  /* Borders - Ghost Border System */
+  --color-border: rgba(61, 74, 66, 0.15);
+  --color-border-subtle: rgba(61, 74, 66, 0.10);
+  --color-border-strong: #3d4a42;
+  --color-outline-variant: #3d4a42;
 
-  --color-input: #1f2937;
-  --color-ring: #22d3ee;
+  --color-input: #161b2b;
+  --color-ring: #78fbc5;
 
-  --color-card: #1f2937;
+  --color-card: #161b2b;
   --color-card-foreground: #e5e7eb;
 
-  --color-popover: #1f2937;
+  --color-popover: #25293a;
   --color-popover-foreground: #e5e7eb;
 
   /* Radius */
@@ -44,7 +65,10 @@
 
   /* Fonts */
   --font-family-sans: var(--font-jakarta), system-ui, sans-serif;
-  --font-family-mono: var(--font-jetbrains), monospace;
+  --font-family-mono: var(--font-space-grotesk), monospace;
+  --font-family-headline: var(--font-jakarta), system-ui, sans-serif;
+  --font-family-body: var(--font-inter), system-ui, sans-serif;
+  --font-family-label: var(--font-space-grotesk), monospace;
 
   /* Animations */
   --animate-gradient-shift: gradient-shift 8s ease infinite;
@@ -149,13 +173,17 @@
 }
 
 @layer utilities {
-  /* Glass morphism */
+  /* Glass morphism - surface_variant at 40% alpha, 12px blur, ghost border */
   .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    background: rgba(47, 52, 69, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(61, 74, 66, 0.15);
   }
 
   .glass-heavy {
-    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+    background: rgba(47, 52, 69, 0.6);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(61, 74, 66, 0.2);
   }
 
   /* Text gradients */
@@ -165,7 +193,7 @@
 
   /* Glow effects */
   .glow-primary {
-    box-shadow: 0 0 40px rgba(34, 211, 238, 0.3);
+    box-shadow: 0 0 40px rgba(120, 251, 197, 0.3);
   }
 
   .glow-secondary {
@@ -180,7 +208,30 @@
 
   /* Hero gradient */
   .bg-hero-gradient {
-    background: radial-gradient(ellipse at top right, rgba(34, 211, 238, 0.3), transparent 50%),
-                radial-gradient(ellipse at bottom left, rgba(99, 102, 241, 0.2), transparent 50%);
+    background: radial-gradient(ellipse at top right, rgba(120, 251, 197, 0.3), transparent 50%),
+                radial-gradient(ellipse at bottom left, rgba(165, 239, 255, 0.2), transparent 50%);
+  }
+
+  /* Nebula gradient - subtle top-center radial glow */
+  .nebula-gradient {
+    background: radial-gradient(circle at 50% -20%, rgba(120, 251, 197, 0.15), transparent 70%);
+  }
+
+  /* Glass card - matches Stitch glass-card */
+  .glass-card {
+    background: rgba(47, 52, 69, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(61, 74, 66, 0.15);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Nebula glow - darker green variant for work page */
+  .nebula-glow {
+    background: radial-gradient(circle at 50% -20%, #005f43 0%, transparent 60%);
+  }
+
+  /* Project card hover image scale */
+  .project-card:hover .project-image {
+    transform: scale(1.05) translateY(-5px);
   }
 }

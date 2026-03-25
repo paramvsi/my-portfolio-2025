@@ -179,7 +179,7 @@ export const hoverLift = {
 
 export const hoverGlow = {
   whileHover: {
-    boxShadow: "0 0 30px rgba(34, 211, 238, 0.3)",
+    boxShadow: "0 0 30px rgba(120, 251, 197, 0.3)",
     transition: {
       duration: 0.3,
     },

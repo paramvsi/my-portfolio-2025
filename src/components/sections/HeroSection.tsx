@@ -4,167 +4,103 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Download } from "lucide-react";
-import TechPill from "@/components/ui/TechPill";
-
-const techStack = [
-  "Next.js",
-  "React",
-  "Angular",
-  "Java/Spring",
-  "Node.js",
-  "Kafka",
-  "Postgres",
-  "E-commerce",
-  "Banking",
-  "Insurance",
-  "Real-Time Systems"
-];
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-hero-gradient opacity-30" />
-
-      <div className="relative max-w-[1500px] mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Text content */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.p
+    <section className="nebula-gradient pt-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-8 py-20 flex flex-col md:flex-row items-center gap-16">
+        {/* Text content */}
+        <motion.div
+          className="flex-1 space-y-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="space-y-4">
+            <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-primary text-sm font-mono mb-4"
+              className="font-label text-primary tracking-widest text-sm font-bold uppercase block"
             >
-              Senior Full-Stack Engineer · Web Platforms · Enterprise Apps · Real-Time Systems
-            </motion.p>
-
+              Senior Full-Stack Engineer · 9+ Years
+            </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+              className="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter leading-tight text-on-background"
             >
-              I build modern, <span className="text-gradient">scalable applications</span>—from web platforms to enterprise systems and real-time solutions.
+              Building Digital{" "}
+              <br />
+              <span className="text-primary italic inline-block hover:scale-110 transition-transform duration-500 cursor-default">
+                Structures
+              </span>
             </motion.h1>
+          </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-foreground-muted text-lg mb-8"
-            >
-              With 9+ years of experience, I&apos;ve delivered full-stack products across e-commerce, banking, insurance, and telecom. I combine modern frontend engineering, solid backend architecture, and clean UI/UX to ship reliable, production-ready applications end-to-end.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-4 mb-8"
-            >
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-primary-foreground font-medium rounded-full transition-colors"
-              >
-                View my work
-                <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/paramveer_resume.pdf"
-                target="_blank"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-primary/30 hover:bg-primary/10 font-medium rounded-full transition-colors"
-              >
-                <Download size={16} />
-                Download résumé
-              </Link>
-            </motion.div>
-
-            {/* Tech stack */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-wrap gap-2"
-            >
-              {techStack.map((tech, index) => (
-                <motion.div
-                  key={tech}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
-                >
-                  <TechPill variant="primary">{tech}</TechPill>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Professional Photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative hidden md:flex justify-center items-center"
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed"
           >
-            {/* Gradient background blur */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-full blur-3xl opacity-50" />
+            Crafting high-performance web platforms and enterprise systems with architectural precision. Currently building data monetization tools, streaming ETL engines, and real-time dashboards at telecom scale.
+          </motion.p>
 
-            {/* Photo container */}
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
-              <motion.div
-                className="relative w-full h-full rounded-3xl overflow-hidden ring-2 ring-primary/30 ring-offset-4 ring-offset-background shadow-2xl"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Image
-                  src="/images/paramveer-hero.png"
-                  alt="Paramveer Singh - Senior Full-Stack Engineer"
-                  fill
-                  className="object-cover brightness-90 contrast-105 saturate-90"
-                  priority
-                  sizes="(max-width: 768px) 0px, (max-width: 1024px) 320px, 384px"
-                />
-                {/* Color overlay to blend with theme */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background/30 mix-blend-overlay" />
-                {/* Subtle overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
-              </motion.div>
-
-              {/* Decorative elements */}
-              <motion.div
-                className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-primary/10 blur-2xl"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex items-center gap-6 pt-4"
+          >
+            <Link
+              href="/work"
+              className="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold font-headline text-base shadow-lg shadow-primary/20 hover:scale-[1.05] hover:shadow-primary/40 active:scale-95 transition-all group inline-flex items-center gap-2"
+            >
+              View Projects
+              <ArrowRight
+                size={18}
+                className="inline-block transition-transform group-hover:translate-x-1"
               />
-              <motion.div
-                className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-purple-500/10 blur-2xl"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.2, 0.4, 0.2]
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1
-                }}
-              />
-            </div>
+            </Link>
+            <Link
+              href="/contact"
+              className="text-on-surface border border-outline-variant/30 px-8 py-4 rounded-xl font-bold font-headline text-base hover:bg-white/5 hover:border-primary/50 transition-all active:scale-95 inline-flex items-center gap-2"
+            >
+              Let&apos;s Talk
+            </Link>
           </motion.div>
-        </div>
+        </motion.div>
+
+        {/* Portrait */}
+        <motion.div
+          className="flex-1 relative hidden md:block"
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="relative w-full aspect-square max-w-md mx-auto">
+            {/* Rotated background layer */}
+            <motion.div
+              className="absolute inset-0 bg-primary-dark/20 rounded-3xl rotate-3"
+              animate={{ y: [0, -20, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Photo container */}
+            <div className="absolute inset-0 bg-surface-high rounded-3xl overflow-hidden shadow-2xl border border-outline-variant/20 -rotate-3 transition-all duration-700 hover:rotate-0 hover:scale-105 group">
+              <Image
+                src="/images/paramveer-hero.png"
+                alt="Paramveer Singh - Senior Full-Stack Engineer"
+                fill
+                className="object-cover grayscale contrast-125 opacity-80 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100"
+                priority
+                sizes="(max-width: 768px) 0px, (max-width: 1024px) 320px, 448px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

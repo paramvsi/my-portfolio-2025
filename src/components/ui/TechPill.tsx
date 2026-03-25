@@ -18,7 +18,7 @@ export default function TechPill({
       className={cn(
         "inline-flex items-center font-mono rounded-full border",
         {
-          "default": "border-border-subtle bg-muted/20 text-foreground-muted",
+          "default": "border-transparent bg-surface-high text-foreground-muted hover:text-secondary transition-colors",
           "primary": "border-primary/30 bg-primary/10 text-primary",
           "secondary": "border-secondary/30 bg-secondary/10 text-secondary",
         }[variant],

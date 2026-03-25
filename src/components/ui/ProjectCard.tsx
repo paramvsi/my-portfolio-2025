@@ -89,7 +89,7 @@ export default function ProjectCard({
               {metrics.slice(0, 2).map((metric, index) => (
                 <div
                   key={index}
-                  className="bg-primary/5 border border-primary/20 rounded-lg px-3 py-2 flex items-center"
+                  className="bg-surface-high rounded-lg px-3 py-2 flex items-center"
                 >
                   <p className="text-primary text-sm font-medium line-clamp-2">{metric}</p>
                 </div>
@@ -99,7 +99,7 @@ export default function ProjectCard({
         </div>
 
         {/* Tech Stack - Fixed at bottom */}
-        <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 mt-auto">
+        <div className="flex flex-wrap gap-2 pt-4 border-t border-border mt-auto">
           {techStack.map((tech) => (
             <TechPill key={tech} variant="default" size="sm">
               {tech}

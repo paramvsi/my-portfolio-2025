@@ -71,7 +71,7 @@ export default function ContactCTA() {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary-dark text-primary-foreground font-medium rounded-full transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-primary-dark text-primary-foreground font-medium rounded-full transition-all duration-300 hover:brightness-110 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40"
                 >
                   Get in touch
                   <motion.div
@@ -101,7 +101,7 @@ export default function ContactCTA() {
               whileInView="animate"
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="flex flex-wrap gap-6 justify-center pt-8 border-t border-white/10"
+              className="flex flex-wrap gap-6 justify-center pt-8 border-t border-border"
             >
               {contactLinks.map((link, index) => {
                 const Icon = link.icon;

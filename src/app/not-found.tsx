@@ -32,7 +32,7 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-primary-foreground font-medium rounded-full transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary-dark text-primary-foreground font-medium rounded-full transition-all hover:brightness-110"
             >
               <Home size={18} />
               Go to Homepage
@@ -48,7 +48,7 @@ export default function NotFound() {
           </div>
 
           {/* Helpful Links */}
-          <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="mt-12 pt-8 border-t border-border">
             <p className="text-sm text-foreground-muted mb-4">
               Here are some helpful links instead:
             </p>
