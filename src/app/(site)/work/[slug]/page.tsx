@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Navigation from "@/components/layout/Navigation";
+import Footer from "@/components/layout/Footer";
 import ProjectDetail from "@/components/sections/ProjectDetail";
 import { projects } from "@/data/projects";
 
@@ -47,6 +48,7 @@ export default async function ProjectPage({ params }: PageProps) {
     <>
       <Navigation />
       <ProjectDetail project={project} />
+      <Footer />
     </>
   );
 }
