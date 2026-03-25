@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, Code2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import { projects } from "@/data/projects";
@@ -103,25 +103,27 @@ export default function WorkPage() {
             {filteredProjects.map((project, index) => {
               const layout = layoutPatterns[index % 4];
               const accent = accentPatterns[index % 4];
+              // Use stable index from full projects array for image mapping
+              const projectIndex = projects.indexOf(project);
+              const hasImage = projectIndex < 20;
 
               return (
                 <Link
                   key={project.id}
                   href={`/work/${project.slug}`}
-                  className={`${layout.colSpan} group relative rounded-xl overflow-hidden glass-card border border-outline-variant/10 cursor-pointer ${accent.hover} project-card`}
+                  className={`${layout.colSpan} min-w-0 group relative rounded-xl overflow-hidden glass-card border border-outline-variant/10 cursor-pointer ${accent.hover} project-card`}
                 >
-                  {/* Image / Placeholder */}
+                  {/* Project Image */}
                   <div className={`${layout.aspect} ${layout.minH} overflow-hidden ${!layout.aspect && !layout.minH ? "aspect-video" : ""}`}>
-                    <div className="project-image w-full h-full bg-gradient-to-br from-surface-high via-surface-container to-surface-variant flex items-center justify-center transition-transform duration-1000">
-                      <div className="text-center space-y-3 p-8">
-                        <div className="w-14 h-14 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center">
-                          <Code2 size={28} className="text-primary/60" />
-                        </div>
-                        <p className="font-label text-xs text-on-surface-variant/40 uppercase tracking-widest">
-                          {project.company}
-                        </p>
-                      </div>
-                    </div>
+                    {hasImage ? (
+                      <img
+                        src={`/images/Work/Project-${String(projectIndex + 1).padStart(2, "0")}.png`}
+                        alt={project.title}
+                        className={`project-image w-full h-full object-cover ${layout.minH ? "object-top" : ""} transition-transform duration-1000`}
+                      />
+                    ) : (
+                      <div className="project-image w-full h-full bg-gradient-to-br from-surface-high via-surface-container to-surface-variant transition-transform duration-1000" />
+                    )}
                   </div>
 
                   {/* Gradient Overlay */}

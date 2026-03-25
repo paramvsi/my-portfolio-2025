@@ -2,9 +2,17 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Code2 } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { featuredProjects } from "@/data/projects";
 import { fadeUp } from "@/lib/animations";
+
+// Project images mapped by index
+const projectImages = [
+  { src: "/images/HomeProjects/Project-01.png", bg: "bg-[#0a1628]", fit: "object-contain" },
+  { src: "/images/HomeProjects/Project-02.png", bg: "bg-[#e8e8e8]", fit: "object-cover" },
+  { src: "/images/HomeProjects/Project-03.png", bg: "bg-[#f5f0e8]", fit: "object-contain" },
+];
 
 // Rotating accent colors for project eyebrows
 const projectAccents = [
@@ -15,7 +23,7 @@ const projectAccents = [
 
 export default function FeaturedWork() {
   return (
-    <section className="max-w-7xl mx-auto px-8 py-32">
+    <section className="max-w-7xl mx-auto px-8 py-32 overflow-hidden">
       {/* Header Row */}
       <motion.div
         className="flex flex-col md:flex-row justify-between md:items-end mb-16 gap-4"
@@ -60,24 +68,19 @@ export default function FeaturedWork() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              {/* Image Placeholder */}
+              {/* Project Image */}
               <div
                 className={`${
                   isReversed ? "md:col-span-7 md:order-2 order-1" : "md:col-span-7"
-                } overflow-hidden rounded-xl bg-surface-high border border-outline-variant/20 shadow-2xl transition-all duration-700 hover:shadow-primary/10`}
+                } min-w-0 overflow-hidden rounded-xl bg-surface-high border border-outline-variant/20 shadow-2xl transition-all duration-700 hover:shadow-primary/10`}
               >
-                <div className="w-full aspect-[16/10] bg-gradient-to-br from-surface-high to-surface-variant flex items-center justify-center p-12 transition-all duration-1000 group-hover:scale-[1.02]">
-                  <div className="text-center space-y-4">
-                    <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center">
-                      <Code2 size={32} className="text-primary" />
-                    </div>
-                    <h4 className="font-headline text-2xl font-bold text-on-surface/60">
-                      {project.title}
-                    </h4>
-                    <p className="font-label text-sm text-on-surface-variant/50 uppercase tracking-widest">
-                      {project.company}
-                    </p>
-                  </div>
+                <div className={`w-full aspect-[16/10] overflow-hidden relative ${(projectImages[index] || projectImages[0]).bg}`}>
+                  <img
+                    src={(projectImages[index] || projectImages[0]).src}
+                    alt={project.title}
+                    className={`w-full h-full ${(projectImages[index] || projectImages[0]).fit} transition-all duration-1000 group-hover:scale-105`}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
                 </div>
               </div>
 
