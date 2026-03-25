@@ -117,7 +117,7 @@ export default function WorkPage() {
                   <div className={`${layout.aspect} ${layout.minH} overflow-hidden ${!layout.aspect && !layout.minH ? "aspect-video" : ""}`}>
                     {hasImage ? (
                       <img
-                        src={`/images/Work/Project-${String(projectIndex + 1).padStart(2, "0")}.png`}
+                        src={`/images/Work/Project-${String(projectIndex + 1).padStart(2, "0")}.jpg`}
                         alt={project.title}
                         className={`project-image w-full h-full object-cover ${layout.minH ? "object-top" : ""} transition-transform duration-1000`}
                       />

@@ -9,9 +9,9 @@ import { fadeUp } from "@/lib/animations";
 
 // Project images mapped by index
 const projectImages = [
-  { src: "/images/HomeProjects/Project-01.png", bg: "bg-[#0a1628]", fit: "object-contain" },
-  { src: "/images/HomeProjects/Project-02.png", bg: "bg-[#e8e8e8]", fit: "object-cover" },
-  { src: "/images/HomeProjects/Project-03.png", bg: "bg-[#f5f0e8]", fit: "object-contain" },
+  { src: "/images/HomeProjects/Project-01.jpg", bg: "bg-[#0a1628]", fit: "object-contain" },
+  { src: "/images/HomeProjects/Project-02.jpg", bg: "bg-[#e8e8e8]", fit: "object-cover" },
+  { src: "/images/HomeProjects/Project-03.jpg", bg: "bg-[#f5f0e8]", fit: "object-contain" },
 ];
 
 // Rotating accent colors for project eyebrows
