@@ -131,7 +131,7 @@ export default function AboutPage() {
           >
             <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl shadow-primary/10 bg-surface-low">
               <Image
-                src="/images/Paramveer-Singh.jpeg"
+                src="/images/paramveer-hero.png"
                 alt="Paramveer Singh"
                 fill
                 className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
