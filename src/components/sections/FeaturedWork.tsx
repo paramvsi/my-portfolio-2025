@@ -75,10 +75,12 @@ export default function FeaturedWork() {
                 } min-w-0 overflow-hidden rounded-xl bg-surface-high border border-outline-variant/20 shadow-2xl transition-all duration-700 hover:shadow-primary/10`}
               >
                 <div className={`w-full aspect-[16/10] overflow-hidden relative ${(projectImages[index] || projectImages[0]).bg}`}>
-                  <img
+                  <Image
                     src={(projectImages[index] || projectImages[0]).src}
                     alt={project.title}
-                    className={`w-full h-full ${(projectImages[index] || projectImages[0]).fit} transition-all duration-1000 group-hover:scale-105`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 58vw"
+                    className={`${(projectImages[index] || projectImages[0]).fit} transition-all duration-1000 group-hover:scale-105`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
                 </div>

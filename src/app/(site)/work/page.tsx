@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
@@ -114,12 +115,14 @@ export default function WorkPage() {
                   className={`${layout.colSpan} min-w-0 group relative rounded-xl overflow-hidden glass-card border border-outline-variant/10 cursor-pointer ${accent.hover} project-card`}
                 >
                   {/* Project Image */}
-                  <div className={`${layout.aspect} ${layout.minH} overflow-hidden ${!layout.aspect && !layout.minH ? "aspect-video" : ""}`}>
+                  <div className={`${layout.aspect} ${layout.minH} overflow-hidden relative ${!layout.aspect && !layout.minH ? "aspect-video" : ""}`}>
                     {hasImage ? (
-                      <img
+                      <Image
                         src={`/images/Work/Project-${String(projectIndex + 1).padStart(2, "0")}.jpg`}
                         alt={project.title}
-                        className={`project-image w-full h-full object-cover ${layout.minH ? "object-top" : ""} transition-transform duration-1000`}
+                        fill
+                        sizes={layout.colSpan.includes("8") ? "(max-width: 768px) 100vw, 66vw" : layout.colSpan.includes("7") ? "(max-width: 768px) 100vw, 58vw" : layout.colSpan.includes("5") ? "(max-width: 768px) 100vw, 42vw" : "(max-width: 768px) 100vw, 33vw"}
+                        className={`project-image object-cover ${layout.minH ? "object-top" : ""} transition-transform duration-1000`}
                       />
                     ) : (
                       <div className="project-image w-full h-full bg-gradient-to-br from-surface-high via-surface-container to-surface-variant transition-transform duration-1000" />
